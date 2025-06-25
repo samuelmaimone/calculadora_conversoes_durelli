@@ -31,6 +31,7 @@ class calculadoraController extends Controller
         }
         return view('resultado', $data = ['resultado' => $resultado]);
     }
+
     public function multiplicar(Request $request){
         $quantidade = $request->input('quantidade');
         return view('formMultiplicar', $data = ['quantidade' => $quantidade]);
@@ -43,6 +44,7 @@ class calculadoraController extends Controller
         }
         return view('resultado', $data = ['resultado' => $resultado]);
     }
+    
     public function dividir(Request $request){
         $quantidade = $request->input('quantidade');
         return view('formDividir', $data = ['quantidade' => $quantidade]);

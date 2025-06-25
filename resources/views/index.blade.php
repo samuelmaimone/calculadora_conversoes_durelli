@@ -6,64 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculadora</title>
     @vite(['resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <img src="{{ asset('storage/imagens/logo.jpg') }}" width="50" height="50" viewBox="0 0 54 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-            <strong class="px-4">Calculadora</strong>
-          </a>
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <img src="{{ asset('storage/imagens/logo.jpg') }}" width="50" height="50" alt="Logo">
+                    <strong class="px-4">Calculadora</strong>
+                </a>
+            </div>
         </div>
     </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-              <div class="card mb-3 shadow-sm" style="width: 18rem;">
-              <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/soma.png') }}" alt="Imagem da soma">
-                <div class="card-body text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_sum">
-                      Somar
-                    </button>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/soma.png') }}" alt="Imagem da soma">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_sum">Somar</button>
+                    </div>
                 </div>
-              </div>
-              </div>
-              <div class="col-md-3">
-              <div class="card mb-3 shadow-sm" style="width: 18rem;">
-              <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/subtracao.png') }}" alt="Imagem da subtracao">
-                <div class="card-body text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_sub">
-                      Subtrair
-                    </button>
-                </div>
-              </div>
-              </div>
             </div>
-            <div class="col-md-3">
-              <div class="card mb-3 shadow-sm" style="width: 18rem;">
-              <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/multiplicacao.png') }}" alt="Imagem da multiplicacao">
-                <div class="card-body text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_multi">
-                      Multiplicar
-                    </button>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/subtracao.png') }}" alt="Imagem da subtracao">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_sub">Subtrair</button>
+                    </div>
                 </div>
-              </div>
-              </div>
             </div>
-            <div class="col-md-3">
-              <div class="card mb-3 shadow-sm" style="width: 18rem;">
-              <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/divisao.png') }}" alt="Imagem da divisao">
-                <div class="card-body text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_dividir">
-                      Dividir
-                    </button>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/multiplicacao.png') }}" alt="Imagem da multiplicacao">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_multi">Multiplicar</button>
+                    </div>
                 </div>
-              </div>
-              </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img class="card-img-top figure-img img-fluid rounded" src="{{asset('storage/imagens/divisao.png') }}" alt="Imagem da divisao">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_dividir">Dividir</button>
+                    </div>
+                </div>
             </div>
         </div>
-      </div>
+    </div>
 
 <!-- Modal Soma -->
 <div class="modal fade" id="modal_sum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,7 +63,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Informe a quantidade de números para a operação</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -95,7 +87,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Informe a quantidade de números para a operação</h5>
-        <button type="button" class="close" data-dismiss="modal_sub" aria-label="Fechar">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -107,7 +99,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal_sub">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
@@ -119,7 +111,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Informe a quantidade de números para a operação</h5>
-        <button type="button" class="close" data-dismiss="modal_sub" aria-label="Fechar">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -131,7 +123,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal_sub">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
@@ -143,7 +135,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Informe a quantidade de números para a operação</h5>
-        <button type="button" class="close" data-dismiss="modal_sub" aria-label="Fechar">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -155,7 +147,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal_sub">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
