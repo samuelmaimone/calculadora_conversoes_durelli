@@ -62,6 +62,30 @@
                 </div>
             </div>
 
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#modal_f6">Fracionários</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#modal_f8">Processar CSV</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <a href="/quiz" class="btn btn-info w-100 text-white fw-bold">Modo Quiz</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -80,7 +104,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="numero_decimal" class="form-label">Digite o número decimal:</label>
-                            <input type="number" class="form-control" name="numero_decimal" id="numero_decimal" required>
+                            <input type="text" class="form-control" name="numero_decimal" id="numero_decimal" required>
                         </div>
 
                         <div class="mb-3">
@@ -91,6 +115,14 @@
                                 <option value="hex">Hexadecimal</option>
                             </select>
                         </div>
+                        
+                        <div class="form-check mt-3 mb-2">
+                            <input class="form-check-input" type="checkbox" name="passo_a_passo" id="passo_a_passo_f1" value="1">
+                            <label class="form-check-label fw-bold" for="passo_a_passo_f1">
+                                Mostrar cálculo passo a passo
+                            </label>
+                        </div>
+                
                     </div>
 
                     <div class="modal-footer">
@@ -129,6 +161,12 @@
                                 <option value="16">Hexadecimal</option>
                             </select>
                         </div>
+                        <div class="form-check mt-3 mb-2">
+                            <input class="form-check-input" type="checkbox" name="passo_a_passo" id="passo_a_passo_f2" value="1">
+                            <label class="form-check-label fw-bold" for="passo_a_passo_f2">
+                                Mostrar cálculo passo a passo
+                            </label>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
@@ -146,7 +184,7 @@
             <div class="modal-content">
                 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalF3Label">Conversão por Agrupamento (F3)</h5>
+                    <h5 class="modal-title" id="modalF3Label">Conversão por Agrupamento</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 
@@ -168,6 +206,11 @@
                         </div>
                     </div>
                     
+                    <div class="form-check mt-3 mb-2">
+                        <input class="form-check-input" type="checkbox" name="passo_a_passo" id="passo_a_passo_f3" value="1">
+                        <label class="form-check-label fw-bold" for="passo_a_passo_f3">Mostrar passo a passo</label>
+                    </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Converter</button>
@@ -187,6 +230,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
 
+                
                 <form method="POST" action="/converter-f4">
                     @csrf
                     
@@ -204,12 +248,100 @@
                             </select>
                         </div>
 
-                        
+                        <div class="form-check mt-3 mb-2">
+                            <input class="form-check-input" type="checkbox" name="passo_a_passo" id="passo_a_passo_f4" value="1">
+                            <label class="form-check-label fw-bold" for="passo_a_passo_f4">Mostrar passo a passo</label>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Converter</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal_f6" tabindex="-1" aria-labelledby="modalF6Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalF6Label">Conversor de Fracionários</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <form method="POST" action="/converter-f6">
+                    @csrf
+                    
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="numero_origem" class="form-label">Número (ex: 10.625 ou 10,625):</label>
+                            <input type="text" class="form-control" name="numero_origem" id="numero_origem" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="base_origem" class="form-label">Base de Origem:</label>
+                            <select class="form-select" name="base_origem" id="base_origem" required>
+                                <option value="2">Binário</option>
+                                <option value="8">Octal</option>
+                                <option value="10" selected>Decimal</option>
+                                <option value="16">Hexadecimal</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="base_destino" class="form-label">Base de Destino:</label>
+                            <select class="form-select" name="base_destino" id="base_destino" required>
+                                <option value="2" selected>Binário</option>
+                                <option value="8">Octal</option>
+                                <option value="10">Decimal</option>
+                                <option value="16">Hexadecimal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Converter</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_f8" tabindex="-1" aria-labelledby="modalF8Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalF8Label">Modo Batch (Processar CSV)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <form method="POST" action="/processar-csv" enctype="multipart/form-data">
+                    @csrf
+                    
+                    <div class="modal-body">
+                        <div class="alert alert-info small">
+                            <strong>Formato esperado do CSV:</strong><br>
+                            O arquivo deve conter 3 colunas separadas por vírgula: <br>
+                            <code>Número, Base de Origem, Base de Destino</code><br>
+                            <em>Exemplo: 10, 10, 2</em>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="arquivo_csv" class="form-label">Selecione o arquivo .csv:</label>
+                            <input class="form-control" type="file" id="arquivo_csv" name="arquivo_csv" accept=".csv" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Processar e Baixar</button>
                     </div>
                 </form>
 

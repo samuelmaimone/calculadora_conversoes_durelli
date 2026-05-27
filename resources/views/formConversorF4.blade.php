@@ -34,6 +34,20 @@
                 Resultado da conversão via intermediário: <strong>{{ $resultado }}</strong> (Base {{ $base }})
             </div>
         @endif
+        @if(isset($mostrarPassoAPasso) && $mostrarPassoAPasso && !empty($trace))
+            <div class="card mt-4 mb-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Passo-a-Passo: Conversão Intermediária</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    @foreach($trace as $passo)
+                        <div class="list-group-item">
+                            <strong>{{ $passo['etapa'] }}:</strong> <code>{{ $passo['valor'] }}</code>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
 
         <div class="mb-4">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_f4">

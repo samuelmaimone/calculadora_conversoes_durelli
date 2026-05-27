@@ -33,6 +33,28 @@
                 Resultado da conversão para decimal: {{ $resultado }}
             </div>
         @endif
+        @if(isset($mostrarPassoAPasso) && $mostrarPassoAPasso && count($trace) > 0)
+        <div class="card mt-3 mb-4">
+            <div class="card-header bg-secondary text-white"><h5>Passo-a-Passo: Somatório Posicional</h5></div>
+            <div class="card-body">
+                <table class="table table-bordered text-center">
+                    <thead class="table-light">
+                        <tr><th>Dígito Original</th><th>Valor Numérico</th><th>Cálculo</th><th class="table-success">Resultado Parcial</th></tr>
+                    </thead>
+                    <tbody>
+                        @foreach($trace as $passo)
+                            <tr>
+                                <td class="fw-bold">{{ $passo['digito'] }}</td>
+                                <td>{{ $passo['valor'] }}</td>
+                                <td>{{ $passo['valor'] }} × (Base {{ $baseOrigem ?? '' }} <sup>{{ $passo['expoente'] }}</sup>)</td>
+                                <td class="table-success">+ {{ $passo['parcial'] }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @endif
 
         <div class="mb-4">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_f2">
@@ -68,6 +90,11 @@
                             </select>
                         </div>
 
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="passo_a_passo" id="passo_a_passo" value="1">
+                        <label class="form-check-label fw-bold" for="passo_a_passo">Mostrar cálculo passo a passo (F7)</label>
                     </div>
 
                     <div class="modal-footer">

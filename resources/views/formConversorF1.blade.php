@@ -26,6 +26,24 @@
                 Resultado da conversão: {{ $resultado }}
             </div>
         @endif
+        @if(isset($mostrarPassoAPasso) && $mostrarPassoAPasso && count($trace) > 0)
+                    <div class="card mt-3 mb-4">
+                        <div class="card-header bg-secondary text-white"><h5>Passo-a-Passo: Divisões Sucessivas</h5></div>
+                        <div class="card-body">
+                            <table class="table table-bordered text-center">
+                                <thead class="table-light">
+                                    <tr><th>Dividendo</th><th>Divisor</th><th>Quociente</th><th class="table-success">Resto</th></tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($trace as $passo)
+                                        <tr><td>{{ $passo['dividendo'] }}</td><td>{{ $passo['divisor'] }}</td><td>{{ $passo['quociente'] }}</td><td class="table-success fw-bold">{{ $passo['resto'] }}</td></tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+
 
         <div class="mb-4">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_conversao">
@@ -62,7 +80,10 @@
                             </select>
                         </div>
                     </div>
-
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="passo_a_passo" id="passo_a_passo" value="1">
+                        <label class="form-check-label fw-bold" for="passo_a_passo">Mostrar cálculo passo a passo</label>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Converter</button>

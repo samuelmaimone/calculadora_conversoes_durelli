@@ -33,6 +33,17 @@
                 Resultado da conversão por agrupamento: {{ $resultado }} (Base {{ $base }})
             </div>
         @endif
+        @if(isset($mostrarPassoAPasso) && $mostrarPassoAPasso)
+            <table class="table table-bordered text-center">
+                <thead><tr><th>Grupo de Bits</th><th>Valor Traduzido</th></tr></thead>
+                <tbody>
+                    @foreach($trace as $passo)
+                    <tr><td>{{ $passo['grupo'] }}</td><td class="table-success fw-bold">{{ $passo['valor'] }}</td></tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
+
 
         <div class="mb-4">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_f3">
