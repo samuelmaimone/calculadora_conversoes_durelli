@@ -21,6 +21,12 @@
     </header>
 
     <div class="container py-4">
+        @if(isset($erro))
+            <div class="alert alert-danger fw-bold text-center mt-4 mb-4" role="alert">
+                {{ $erro }}
+            </div>
+        @endif
+
         @if(isset($resultado))
             <div class="alert alert-success mb-4" role="alert">
                 Resultado da conversão: {{ $resultado }}

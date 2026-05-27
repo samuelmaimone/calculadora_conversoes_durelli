@@ -15,4 +15,5 @@ Route::post('/converter-f6', [calculadoraController::class, 'suportarFracionario
 Route::post('/processar-csv', [calculadoraController::class, 'processarBatchCsv']);
 Route::get('/quiz', [calculadoraController::class, 'iniciarQuiz']);
 Route::post('/quiz', [calculadoraController::class, 'verificarQuiz']);
+Route::post('/limites', [calculadoraController::class, 'calcularLimites']);
 ;

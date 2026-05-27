@@ -11,6 +11,10 @@ class calculadoraController extends Controller
         $numeroDecimal = $requisicao->input('numero_decimal');
         $mostrarPassoAPasso = $requisicao->has('passo_a_passo');
         
+        if (strpos($numeroDecimal, ',') !== false || strpos($numeroDecimal, '.') !== false) {
+            return view('formConversorF1')->with('erro', "Entrada inválida! O Conversor Base aceita apenas números inteiros. Para valores com vírgula, volte ao menu e utilize a calculadora de Fracionários (F6).");
+        }
+
         $resultadoFinal = '';
         $trace = [];
         
@@ -408,6 +412,31 @@ class calculadoraController extends Controller
             'respostaUsuario' => $respostaUsuario,
             'respostaCorreta' => $respostaCorreta,
             'acertou' => $acertou
+        ]);
+    }
+
+    public function calcularLimites(Request $requisicao) {
+        $k = (int) $requisicao->input('quantidade_bits');
+
+        if ($k < 1 || $k > 64) {
+            return redirect('/')->with('erro', 'Por favor, insira um valor entre 1 e 64 bits.');
+        }
+
+        $semSinalMax = bcpow('2', (string)$k) - 1;
+        $semSinalMin = 0;
+
+        $magnitudeMax = bcpow('2', (string)($k - 1)) - 1;
+        $magnitudeMin = -$magnitudeMax;
+
+        $comp2Max = $magnitudeMax; 
+        $comp2Min = bcpow('2', (string)($k - 1)) * -1; 
+
+        return view('formConversorF10', [
+            'bits' => $k,
+            'semSinal' => ['min' => $semSinalMin, 'max' => $semSinalMax],
+            'magnitude' => ['min' => $magnitudeMin, 'max' => $magnitudeMax],
+            'comp1' => ['min' => $magnitudeMin, 'max' => $magnitudeMax],
+            'comp2' => ['min' => $comp2Min, 'max' => $comp2Max]
         ]);
     }
 }

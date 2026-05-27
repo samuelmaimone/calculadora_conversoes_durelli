@@ -14,7 +14,8 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <strong class="px-4">Calculadora</strong>
+                    <strong class="px-4">Conversor Universal de Sistemas de Numeração</strong>
+                    <small class="fw-light">Thiago Lucas Soares Brigida e Samuel Vitor Maimone Santana - Turma 10A</small>
                 </a>
             </div>
         </div>
@@ -82,6 +83,14 @@
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <a href="/quiz" class="btn btn-info w-100 text-white fw-bold">Modo Quiz</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#modal_f10">Limites de Bits</button>
                     </div>
                 </div>
             </div>
@@ -345,6 +354,31 @@
                     </div>
                 </form>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_f10" tabindex="-1" aria-labelledby="modalF10Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalF10Label">Limites de Representação</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <form action="/limites" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="quantidade_bits" class="form-label">Quantidade de Bits (k):</label>
+                            <input type="number" class="form-control" name="quantidade_bits" id="quantidade_bits" min="1" max="64" required placeholder="Ex: 8">
+                            <div class="form-text">Insira um valor entre 1 e 64 bits.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-dark">Calcular Limites</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
