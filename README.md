@@ -1,6 +1,10 @@
 **Trabalho Prático 1 - Thiago Lucas Soares Brigida e Samuel Vitor Maimone Santana — Conversor Universal de Sistemas
 de Numeração**
 
+**LINK DO VÍDEO DE EXPLICAÇÃO: https://drive.google.com/drive/folders/1-5WLzObjhlMVroW9n8XqtoIsG3cS06mG?usp=sharing**
+
+
+
 
 README automático do LARAVEL:
 
