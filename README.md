@@ -3,10 +3,20 @@ de Numeração**
 
 **LINK DO VÍDEO DE EXPLICAÇÃO: https://drive.google.com/drive/folders/1-5WLzObjhlMVroW9n8XqtoIsG3cS06mG?usp=sharing**
 
+##Suíte de Testes Automatizados
+
+Para validar o funcionamento de todos os requisitos (F1 ao F10), desenvolvemos uma suíte de testes automatizados com 30 casos de teste.
+
+### Como executar:
+1. Certifique-se de que o ambiente está configurado.
+2. No terminal, na raiz do projeto, execute o comando:
+
+````bash
+php artisan test --filter ConversorSuiteTest
+````
 
 
-
-README automático do LARAVEL:
+##README automático do LARAVEL:
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
